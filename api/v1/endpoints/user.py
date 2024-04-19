@@ -46,4 +46,4 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: AsyncSessi
     if not user:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='Wrong access data.')
     
-    return JSONResponse(content={"acess_token": create_access_token(sub=user.id), "token_type": "bearer"}, status_code=status.HTTP_200_OK)
+    return JSONResponse(content={"access_token": create_access_token(sub=user.id), "token_type": "bearer"}, status_code=status.HTTP_200_OK)
