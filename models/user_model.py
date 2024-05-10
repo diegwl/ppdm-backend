@@ -6,6 +6,7 @@ from core.configs import settings
 from typing import List
 
 from models.address_model import AddressModel
+from models.order_model import OrderModel
 
 class UserModel(settings.DBBaseModel):
     __tablename__ = 'user'
@@ -16,7 +17,13 @@ class UserModel(settings.DBBaseModel):
     email: str = Column(String(255), nullable=False, unique=True)
     password: str = Column(String(255), nullable=False)
     admin: bool = Column(Boolean, default=False)
-    address: List[AddressModel] = relationship(
+    address: AddressModel = relationship(
         "AddressModel",
-        uselist=True
+        uselist=True,
+        lazy='joined'
+    )
+    orders: List[OrderModel] = relationship(
+        "OrderModel",
+        uselist=True,
+        lazy='joined'
     )
