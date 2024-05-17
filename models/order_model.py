@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Float
 from sqlalchemy.orm import relationship
 
 from core.configs import settings
@@ -10,7 +10,7 @@ class OrderItemModel(settings.DBBaseModel):
     __allow_unmapped__ = True
     
     id: int = Column(Integer, primary_key=True, autoincrement=True)
-    item_id: int = Column('item_id', ForeignKey('item.id'))
+    item_id: str = Column(String(255), nullable=False)
     order_id: int = Column('order_id', ForeignKey('order.id'))
 
 class OrderModel(settings.DBBaseModel):
@@ -20,4 +20,9 @@ class OrderModel(settings.DBBaseModel):
     id: int = Column(Integer, primary_key=True, autoincrement=True)
     status: str = Column(String(255), nullable=False)
     user_id: int = Column('user_id', ForeignKey('user.id'))
-    items: List[OrderItemModel] = relationship("OrderItemModel", uselist=True)
+    items: List[OrderItemModel] = relationship(
+        "OrderItemModel", 
+        uselist=True, 
+        lazy="joined"
+    )
+    freight: float = Column(Float, nullable=False, default=0)

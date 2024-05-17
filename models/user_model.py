@@ -17,7 +17,7 @@ class UserModel(settings.DBBaseModel):
     email: str = Column(String(255), nullable=False, unique=True)
     password: str = Column(String(255), nullable=False)
     admin: bool = Column(Boolean, default=False)
-    address: AddressModel = relationship(
+    address: List[AddressModel] = relationship(
         "AddressModel",
         uselist=True,
         lazy='joined'

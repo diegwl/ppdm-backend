@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "7360b487-4048-4e9e-9849-d9a8938a8baf",
+		"name": "PPDM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29252645"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "POST Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"diegwl\",\r\n  \"email\": \"diego@email.com\",\r\n  \"admin\": true,\r\n  \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/signup/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "diego@email.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Logged",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE2NTY5MTM5LCJpYXQiOjE3MTU5NjQzMzksInN1YiI6IjEifQ.H3SvZMJ26y2IhNdGD2w2C-KEo8Cm-I-f8dpasjc3vOc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/logged/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"logged",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Logged Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE2NTcyNzc1LCJpYXQiOjE3MTU5Njc5NzUsInN1YiI6IjEifQ.F76A3M9Hxg3MPl1aQFArQYcOVB641cRBrBFSBZtedd4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/users/logged/details/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"logged",
+								"details",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "POST Address",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE1OTcwMjcyLCJpYXQiOjE3MTUzNjU0NzIsInN1YiI6IjEifQ.lQFoCQ225E-EIXtir5Az_Rqw-KahNAY9RIzwjvC1MRI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"street\": \"Rua Isidoro Basso\",\r\n  \"number\": \"40\",\r\n  \"neighborhood\": \"Real Park Sumaré\",\r\n  \"cep\": \"13178-566\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/address/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"address",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "POST Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE2NTcyNzc1LCJpYXQiOjE3MTU5Njc5NzUsInN1YiI6IjEifQ.F76A3M9Hxg3MPl1aQFArQYcOVB641cRBrBFSBZtedd4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"freight\": 100,\r\n  \"items\": [\r\n    \"a\",\r\n    \"b\",\r\n    \"c\"\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE2NTcyNzc1LCJpYXQiOjE3MTU5Njc5NzUsInN1YiI6IjEifQ.F76A3M9Hxg3MPl1aQFArQYcOVB641cRBrBFSBZtedd4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/orders/?me=True",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								""
+							],
+							"query": [
+								{
+									"key": "me",
+									"value": "True"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE2NTcyNzc1LCJpYXQiOjE3MTU5Njc5NzUsInN1YiI6IjEifQ.F76A3M9Hxg3MPl1aQFArQYcOVB641cRBrBFSBZtedd4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/orders/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Order",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzE2NTcyNzc1LCJpYXQiOjE3MTU5Njc5NzUsInN1YiI6IjEifQ.F76A3M9Hxg3MPl1aQFArQYcOVB641cRBrBFSBZtedd4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/orders/1?status=confirmed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"1"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "confirmed"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -2,23 +2,25 @@ from typing import Optional, List
 
 from pydantic import BaseModel
 
-from schemas.item_schema import ItemSchema
-
 class OrderItemSchema(BaseModel):
     id: Optional[int] = None
-    item_id: int
-    order_id: int
+    item_id: Optional[str] = None
+    order_id: Optional[int] = None
     
     class Config:
         orm_mode = True
     
 class OrderSchema(BaseModel):
     id: Optional[int] = None
-    status: str
-    user_id: int
+    status: Optional[str] = None
+    user_id: Optional[int] = None
+    freight: Optional[float] = 0.0
     
     class Config:
         orm_mode = True
     
 class OrderWithItemsSchema(OrderSchema):
-    items: Optional[List[ItemSchema]]
+    items: Optional[List[OrderItemSchema]]
+    
+class OrderSchemaPost(OrderSchema):
+    items: Optional[List[str]]
